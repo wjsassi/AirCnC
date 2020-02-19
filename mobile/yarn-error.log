@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-navigation
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add axios
 
 PATH: 
   C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\AOMEI Backupper;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_211\bin;C:\AndroidApp\platform-tools;C:\AndroidApp\tools;C:\AndroidApp\tools\bin;C:\Flutter\bin;C:\Program Files\Microsoft VS Code;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\LaboratórioNúcleo\AppData\Local\Microsoft\WindowsApps;C:\PHP;C:\Users\LaboratórioNúcleo\.dotnet\tools;C:\Users\LaboratórioNúcleo\AppData\Roaming\npm;C:\Users\LaboratórioNúcleo\AppData\Local\Yarn\bin
@@ -14,7 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\OneDriveWelson\OneDrive\OminiStack\AirCnC\Projeto\mobile\node_modules\@babel\compat-data\node_modules\.bin'
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:60:26)
 
 npm manifest: 
   {
@@ -28,6 +29,7 @@ npm manifest:
     },
     "dependencies": {
       "@react-native-community/masked-view": "0.1.5",
+      "@react-navigation/native": "^5.0.5",
       "expo": "~36.0.0",
       "react": "~16.9.0",
       "react-dom": "~16.9.0",
@@ -36,7 +38,8 @@ npm manifest:
       "react-native-reanimated": "~1.4.0",
       "react-native-safe-area-context": "0.6.0",
       "react-native-screens": "2.0.0-alpha.12",
-      "react-native-web": "~0.11.7"
+      "react-native-web": "~0.11.7",
+      "react-navigation": "^4.1.1"
     },
     "devDependencies": {
       "@babel/core": "^7.0.0",
@@ -2676,9 +2679,9 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
     integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
   
-  "hammerjs@git+https://github.com/naver/hammer.js.git":
+  "hammerjs@https://github.com/naver/hammer.js.git":
     version "2.0.17-snapshot"
-    resolved "git+https://github.com/naver/hammer.js.git#54bc698b25edd6e1b76ca975ebaced5ce0467d51"
+    resolved "https://github.com/naver/hammer.js.git#54bc698b25edd6e1b76ca975ebaced5ce0467d51"
     dependencies:
       "@types/hammerjs" "^2.0.36"
   

@@ -1,22 +1,61 @@
-import React from 'react';
-import { View, Image, Text, TextInput, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, AsyncStorage, KeyboardAvoidingView, Image, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
+import api from '../services/api';
 import logo from '../assets/logo.png';
 
-export default function Login() {
-    return (
-    <View style={styles.container}>
-        <Image source={logo} />
+export default function Login({ navigation }) {
+    const [email, setEmail] = useState('');
+    const [techs, setTechs] = useState('');
 
+    useEffect(() => {
+        AsyncStorage.getItem('users').then(user => {
+            if (user){
+                navigation.navigate('List');
+            }
+        })
+    }, []);
+
+    async function handleSubmit(){
+        const response = await api.post('/sessions', {email})
+        const { _id } = response.data;
+
+        await AsyncStorage.setItem('user', _id);
+        await AsyncStorage.setItem('techs', techs);
+
+        navigation.navigate('List');
+    }
+
+    return (
+    <KeyboardAvoidingView behavior='padding' style={styles.container}>
+        <Image source={logo} />
         <View style={styles.form}>
             <Text style={styles.label}>SEU E-MAIL *</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Seu e-Mail"
                 placeholderTextColor="#999"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+                value={email}
+                onChangeText={setEmail}     // <- Forma simplificada disso -> {text => setEmail(text)}
             />
+            <Text style={styles.label}>TECNOLOGIAS *</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Tecnologias de Interesse"
+                placeholderTextColor="#999"
+                autoCapitalize="words"
+                autoCorrect={false}
+                value={techs}
+                onChangeText={setTechs}
+            />
+            <TouchableOpacity onPress={handleSubmit} style={styles.button}>
+                <Text style={styles.buttonText}>Encontrar Spots</Text>
+            </TouchableOpacity>
         </View>
-    </View>
+    </KeyboardAvoidingView>
     );
 }
 
@@ -24,11 +63,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     form: {
-        alignSelf: 'strech',
-        paddingHorizotal: 30,
+        alignSelf: 'stretch',
+        paddingHorizontal: 30,
         marginTop: 30,
     },
     label: {
@@ -44,6 +83,18 @@ const styles = StyleSheet.create({
         color: '#444',
         height: 44,
         marginBottom: 20,
-        borderRadius: 2
-    }
+        borderRadius: 2,
+    },
+    button: {
+        height: 42,
+        backgroundColor: '#f05a5b',
+        justifyContent: 'center',
+        alignItems: "center",
+        borderRadius: 2,
+    },
+    buttonText: {
+        color: '#FFF',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
 });
