@@ -16,7 +16,7 @@ mongoose.connect ('mongodb+srv://dbusername:gaivota22@cluster0-hsfbm.mongodb.net
     useUnifiedTopology: true
 });
 
-const connectedUsers = {}; // Não usar em produção, usar banco de dados
+const connectedUsers = {}; // Não usar em produção, usar banco de dados para gravar
 
 io.on('connection', socket => {
     //console.log(socket.handshake.query);
@@ -36,7 +36,7 @@ io.on('connection', socket => {
 app.use(( req, res, next) => {
     req.io = io;
     req.connectedUsers = connectedUsers;
-    return next();
+    return next(); // se nao usar o next, ele não executa nada do que está nas linhas abaixo
 });
 
 app.use(cors()); // origin: 'URL ou IP' aqui pode configurar o endereco que pode acessar o backend
