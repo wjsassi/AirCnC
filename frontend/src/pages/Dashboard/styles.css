@@ -40,7 +40,7 @@ ul.notifications li {
     line-height: 24px;
 }
 
-ul.notifications button {
+ul.notifications li button {
     margin-right: 10px;
     border: 0;
     font-weight: bold;
@@ -48,10 +48,10 @@ ul.notifications button {
     cursor: pointer;
 }
 
-ul.notifications button.accept {
+ul.notifications li button.accept {
     color: #84c870;
 }
 
-ul.notifications button.reject {
+ul.notifications li button.reject {
     color: #e55e5e;
 }

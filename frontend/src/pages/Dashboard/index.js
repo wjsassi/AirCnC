@@ -43,12 +43,12 @@ export default function Dashboard(){
     }, []) // se esse array estiver vazio, vai fazer apenas uma vez
 
     async function handleAccept(id) {
-        await api.post(`/booking/${id}/aprovals`);
+        await api.post(`/bookings/${id}/aprovals`);
         setRequest(request.filter(request => request._id !== id));
     };
 
     async function handleReject(id) {
-        await api.post(`/booking/${id}/rejections`);
+        await api.post(`/bookings/${id}/rejections`);
         setRequest(request.filter(request => request._id !== id));
     };
 
