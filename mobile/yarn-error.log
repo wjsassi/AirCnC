@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add axios
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add socket.io-client
 
 PATH: 
   C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\AOMEI Backupper;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_211\bin;C:\AndroidApp\platform-tools;C:\AndroidApp\tools;C:\AndroidApp\tools\bin;C:\Flutter\bin;C:\Program Files\Microsoft VS Code;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\LaboratórioNúcleo\AppData\Local\Microsoft\WindowsApps;C:\PHP;C:\Users\LaboratórioNúcleo\.dotnet\tools;C:\Users\LaboratórioNúcleo\AppData\Roaming\npm;C:\Users\LaboratórioNúcleo\AppData\Local\Yarn\bin
@@ -14,8 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:60:26)
+  Error: EPERM: operation not permitted, unlink 'C:\OneDriveWelson\OneDrive\OminiStack\AirCnC\Projeto\mobile\node_modules\file-uri-to-path\test'
 
 npm manifest: 
   {
@@ -30,6 +29,7 @@ npm manifest:
     "dependencies": {
       "@react-native-community/masked-view": "0.1.5",
       "@react-navigation/native": "^5.0.5",
+      "axios": "^0.19.2",
       "expo": "~36.0.0",
       "react": "~16.9.0",
       "react-dom": "~16.9.0",
